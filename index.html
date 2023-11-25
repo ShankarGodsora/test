@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .parent{
+            width: 70%;
+            margin: auto;
+            /* border: 2px solid red; */
+        }
+        h1{
+            height: 50px;
+            width: 100%;
+            /* border: 2px solid green; */
+            text-align: center;
+            color: rgba(0, 0, 255, 0.457);
+        }
+        .child>div{
+         
+            width: 100%;
+            /* border: 2px solid blue; */
+            display: flex;
+            justify-content: space-around;
+            
+           
+        }
+        .child>div>:nth-child(1){
+            height: 400px;
+            width: 30%; 
+            padding: 2%;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            /* border: 2px solid yellow;  */
+
+        }
+        input,select{
+            width: 100%;
+            padding:4px;
+            font-size: 18px;
+           margin-top:2%;
+           margin-bottom: 2%;
+        }
+        .button{
+            width: 100%;
+            padding: 2%;
+            background-color:rgb(43,97,158);
+            border-radius: 20px;
+            color:white;
+            border: none;
+            font-size: 20px;
+        }
+
+
+        /* .child>div>:nth-child(2){
+            border: 2px solid palegreen;
+        } */
+        table{            
+              border-collapse: collapse; 
+       }
+        th, td { 
+                padding: 8px;   
+        }  
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <h1>HOSPITAL - DOCTOR RECORDS</h1>
+            <div class="child">
+                <div>
+                    <div>
+                        <form>
+                            <label for="name"> Doctor Name</label><br>
+                            <input type="text" id="name" required><br>
+                
+                            <label for="number">Doctor ID</label><br>
+                            <input type="text" id="doctorId" required><br>
+                
+                            <label>Specialization</label><br>
+                            <select id="specialization" required>
+                                <option value="ENT">ENT</option>
+                                <option value="Cardiologist">Cardiologist</option>
+                                <option value="Dermatologist">Dermatologist</option>
+                            </select><br>
+                
+                            <label for="experience">Experience</label>
+                            <input type="number" id="experience" required><br>
+                
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" required><br>
+                
+                            <label for="mobile">Mobile Number</label>
+                            <input type="tel" id="mobile" required><br>
+                
+                            <button class="button"  type="button" onclick="submitForm()">Submit</button>
+                        </form>
+                    </div>
+
+
+                    <div>
+                        <label for="filter">Select by Specialization</label>
+                        <select id="filter" onchange="filterTable()">
+                            <option value="all">All</option>
+                            <option value="ENT">ENT</option>
+                            <option value="Cardiologist">Cardiologist</option>
+                            <option value="Dermatologist">Dermatologist</option>
+                        
+                        </select>
+                        <br><br><br>
+                    
+                    
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Doctor ID</th>
+                                    <th>Specialization</th>
+                                    <th>Experience</th>
+                                    <th>Email</th>
+                                    <th>Mobile</th>
+                                    <th>Role</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Table_Body">
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
+<script src="./index.js"></script>
